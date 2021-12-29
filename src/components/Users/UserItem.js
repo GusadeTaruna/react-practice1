@@ -1,11 +1,17 @@
 import React from "react";
-import "./UserItem.css";
+import itemStyles from "./UserItem.module.css";
 
 const UserItem = (props) => {
+  const userDeleteHandler = () => {
+    // console.log(props.id);
+    props.onDelete(props.id);
+  };
+
   return (
-    <div className="list-item">
+    <div className={`${itemStyles["list-item"]}`} onClick={userDeleteHandler}>
       <h3>Username : {props.username}</h3>
       <h3>Age : {props.age}</h3>
+      <p>Click to delete user</p>
     </div>
   );
 };
